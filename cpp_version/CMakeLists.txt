@@ -2,12 +2,12 @@ project(ranger)
 cmake_minimum_required(VERSION 2.0)
 
 ## ======================================================================================##
-## Check for C++14. For GCC this is >=4.7
+## Check for C++11.
 ## ======================================================================================##
 include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX14)
-if(COMPILER_SUPPORTS_CXX14)
-  message("Compiler with C++14 support found.")
+CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX14)
+if(COMPILER_SUPPORTS_CXX11)
+  message("Compiler with C++11 support found.")
 else()
   message(FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++14 support. Please use a different C++ compiler, i.e. gcc >= 5 or Clang >= 3.4.")
 endif()
@@ -15,7 +15,7 @@ endif()
 ## ======================================================================================##
 ## Compiler flags
 ## ======================================================================================##
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++14")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
 
 ## ======================================================================================##
 ## In Clang phtread flag only for compiler, not for linker. For
